@@ -106,12 +106,12 @@ namespace _0002SP
                 }
                 else
                 {
-                    MessageBox.Show("The process has\nalready started", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The process \"" + processesNames[id] + "\" has already started", "Error! (Starting Process)", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error! (Starting Process)", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -126,6 +126,13 @@ namespace _0002SP
                 processes[id] = null;
 
                 textBoxesUp(textBoxN);
+
+                MessageBox.Show("Process \"" + processesNames[id] + "\" was closed", "Info (Closing Process)", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            else
+            {
+                MessageBox.Show("Process \"" + processesNames[id] + "\" hasn`t started yet", "Error! (Closing Process)", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
